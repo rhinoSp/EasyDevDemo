@@ -1,0 +1,26 @@
+ext {
+    android = [
+            versionName      : "1.0",
+            versionCode      : 1,
+            compileSdkVersion: 28,
+            targetSdkVersion : 28,
+            minSdkVersion    : 16
+    ]
+
+    dependencies = [
+            "recyclerview"           : 'com.android.support:recyclerview-v7:28.0.0',
+            "appcompat-v4"           : 'com.android.support:support-v4:28.0.0',
+            "appcompat-v7"           : 'com.android.support:appcompat-v7:28.0.0',
+            "cardview-v7"            : 'com.android.support:cardview-v7:28.0.0',
+            "design"                 : 'com.android.support:design:28.0.0',
+            "multidex"               : 'com.android.support:multidex:1.0.1',
+            "constraint-layout"      : 'com.android.support.constraint:constraint-layout:1.1.2',
+            "support-vector-drawable": 'com.android.support:support-vector-drawable:28.0.0',
+            "support-annotations"    : 'com.android.support:support-annotations:28.0.0',
+
+            "LibEasyDev"             : 'com.github.rhinoSp:LibEasyDev:v1.0'
+
+    ]
+
+}
+
