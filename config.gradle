@@ -18,7 +18,7 @@ ext {
             "support-vector-drawable": 'com.android.support:support-vector-drawable:28.0.0',
             "support-annotations"    : 'com.android.support:support-annotations:28.0.0',
 
-            "LibEasyDev"             : 'com.github.rhinoSp:LibEasyDev:v1.0'
+            "LibEasyDev"             : 'com.github.rhinoSp:LibEasyDev:v1.1'
 
     ]
 

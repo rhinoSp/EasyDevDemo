@@ -1,9 +1,9 @@
 package com.rhino.easydevdemo.http.result;
 
 /**
- * @author LuoLin
- * @since Create on 2019/2/19.
- */
+ * @author rhino
+ * @since Create on 2019/4/14.
+ **/
 public class BaseResult<T> {
 
     public Error error;

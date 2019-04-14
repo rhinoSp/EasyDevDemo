@@ -1,5 +1,13 @@
 apply plugin: 'com.android.application'
 
+/**
+ * 获取build时间
+ * @return
+ */
+static def buildTime() {
+    return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("GMT+08:00"))
+}
+
 android {
     compileSdkVersion rootProject.android.compileSdkVersion
     defaultConfig {
@@ -10,10 +18,39 @@ android {
         applicationId "com.rhino.easydevdemo"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+    signingConfigs {
+        keystore {
+            storeFile file('../keystore/demo.keystore')
+            storePassword "123456"
+            keyAlias "demo.keystore"
+            keyPassword "123456"
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //对齐操作，使得我们的程序在Android系统中运行得更快
+            zipAlignEnabled true
+            //移除无用的resource文件 必须和minifyEnabled一起使用
+            shrinkResources false
+            //修改生成的apk名字
+            applicationVariants.all { variant ->
+                //这个修改输出的APK路径
+                if (variant.buildType.name == "release") {
+                    variant.getPackageApplication().outputDirectory = new File(project.rootDir.absolutePath + "/outputApk")
+                    variant.getPackageApplication().outputScope.apkDatas.forEach { apkData ->
+                        //这个修改输出APK的文件名
+                        apkData.outputFileName = "APK_v${variant.versionName}_${variant.versionCode}_${buildTime()}.apk"
+                    }
+                }
+            }
+            signingConfig signingConfigs.keystore
+        }
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            signingConfig signingConfigs.keystore
         }
     }
     compileOptions {
