@@ -1,4 +1,4 @@
-package com.rhino.easydevdemo.utils;
+package com.rhino.easydevdemo.ui;
 
 import android.app.Activity;
 import android.content.Intent;

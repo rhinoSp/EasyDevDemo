@@ -13,7 +13,6 @@ import com.rhino.easydevdemo.constant.FileConfig;
 import com.rhino.easydevdemo.databinding.ActivitySplashBinding;
 import com.rhino.easydevdemo.http.HttpApi;
 import com.rhino.easydevdemo.http.result.BaseResult;
-import com.rhino.easydevdemo.utils.UiUtils;
 import com.rhino.ui.utils.FileUtils;
 import com.rhino.ui.utils.ui.ColorUtils;
 import com.rhino.ui.utils.ui.ToastUtils;
@@ -78,7 +77,7 @@ public class SplashActivity extends BaseSimpleTitleHttpActivity<ActivitySplashBi
                 }
             });
         } else {
-            new Handler().postDelayed(new Runnable() {
+            handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     if (!isFinishing()) {
